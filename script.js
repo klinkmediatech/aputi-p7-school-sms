@@ -1,11 +1,14 @@
 const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_ID",
-  storageBucket: "YOUR_BUCKET",
-  messagingSenderId: "YOUR_SENDER",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBYoFzgtRowX2ekxhHgq2qfYcPFY4lE34M",
+  authDomain: "aputi-p7-school-sms.firebaseapp.com",
+  projectId: "aputi-p7-school-sms",
+  storageBucket: "aputi-p7-school-sms.firebasestorage.app",
+  messagingSenderId: "219692740657",
+  appId: "1:219692740657:web:e4278c3d202ec7bd4b6510"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
