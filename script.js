@@ -36,3 +36,46 @@ function loadStudents() {
 }
 
 loadStudents();
+function addStudent() {
+  db.collection("students").add({
+    name: document.getElementById("name").value,
+    class: document.getElementById("class").value,
+    age: document.getElementById("age").value,
+    gender: document.getElementById("gender").value
+  });
+
+  alert("Student added!");
+
+  document.getElementById("name").value = "";
+  document.getElementById("class").value = "";
+  document.getElementById("age").value = "";
+  document.getElementById("gender").value = "";
+                                       }
+
+function loadStudents() {
+  db.collection("students").onSnapshot((snapshot) => {
+    let html = "";
+
+    snapshot.forEach((doc) => {
+      let s = doc.data();
+
+      html += `
+        <div class="card">
+          <b>${s.name}</b><br>
+          Class: ${s.class}<br>
+          Age: ${s.age}<br>
+          Gender: ${s.gender}<br><br>
+
+          <button onclick="deleteStudent('${doc.id}')">Delete</button>
+        </div>
+      `;
+    });
+
+    document.getElementById("studentList").innerHTML = html;
+  });
+}
+function deleteStudent(id) {
+  db.collection("students").doc(id).delete();
+}
+
+loadStudents();
