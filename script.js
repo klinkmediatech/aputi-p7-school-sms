@@ -22,22 +22,17 @@ function loadStudents() {
 
       html += `
         <div class="card">
-          <b>${s.name}</b><br>
-          Class: ${s.class}<br>
-          Age: ${s.age}<br>
-          Gender: ${s.gender}<br><br>
-
-          <button onclick="deleteStudent('${doc.id}')">Delete</button>
+          <h3>${s.name}</h3>
+          <p>Class: ${s.class}</p>
+          <p>Age: ${s.age}</p>
+          <p>Gender: ${s.gender}</p>
+          <p>LIN: ${s.lin}</p>
         </div>
       `;
     });
 
     document.getElementById("studentList").innerHTML = html;
   });
-}
-
-function deleteStudent(id) {
-  db.collection("students").doc(id).delete();
 }
 
 loadStudents();
