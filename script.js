@@ -35,7 +35,6 @@ function loadStudents() {
   });
 }
 
-loadStudents();
 function addStudent() {
   db.collection("students").add({
     name: document.getElementById("name").value,
